@@ -7,31 +7,6 @@
   font-family: 'MuseoModerno', cursive;
 }
 
-.container {
-  width: 100%;
-  margin: 0 auto;
-}
-
-.container-login {
-  width: 100%;
-  min-height: 100vh;
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  justify-content: center;
-  padding: 15px;
-  background-color: #5086C1;
-}
-
-.wrap-login {
-  width: 390px;
-  background-color: #88A3C1;
-  border-radius: 10px;
-  overflow: hidden;
-  padding: 77px 55px 33px 55px;
-  box-shadow: 0 5px 10px 0px rgba(0, 0, 0, 0.2);
-}
-
 .login-form {
   width: 100%;
 }
@@ -46,7 +21,8 @@
 
 .login-form-title img {
   width: 150px;
-  margin-top: 10px;
+  padding-bottom: 50px;
+  padding-top: 20px;
 }
 
 .wrap-input {
