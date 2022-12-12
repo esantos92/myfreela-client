@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { LayoutComponents } from "../../Components/LayoutComponents"
 import { Link } from "react-router-dom";
+import { api } from "../../services/api";
 
 import logoMyFreela from "../../assets/logo.png"
 
@@ -9,9 +10,21 @@ export const Register = () => {
   const [password, setPassword] = useState("");
   const [name, setName] = useState("");
 
+  const handleSaveUser = async (e) => {
+    e.preventDefault();
+    const data ={
+      email,
+      password,
+      name
+    }
+
+    const response = await api.post('/user/signup', data);
+    console.log(response.data);
+  }
+
   return(
     <LayoutComponents>
-      <form className="login-form">
+      <form onSubmit={handleSaveUser} className="login-form">
         <span className="login-form-title">Criar conta</span>
 
         <span className="login-form-title">
@@ -21,8 +34,8 @@ export const Register = () => {
         <div className="wrap-input">
           <input
             className={name !== "" ? "has-val input" : "input"}
-            type="name"
-            required="true"
+            type="text"
+            required={true}
             value={name}
             onChange={(e) => setName(e.target.value)}
           />
@@ -33,7 +46,7 @@ export const Register = () => {
           <input
             className={email !== "" ? "has-val input" : "input"}
             type="email"
-            required="true"
+            required={true}
             value={email}
             onChange={(e) => setEmail(e.target.value)}
           />
@@ -44,7 +57,7 @@ export const Register = () => {
           <input
             className={password !== "" ? "has-val input" : "input"}
             type="password"
-            required="true"
+            required={true}
             value={password}
             onChange={(e) => setPassword(e.target.value)}
           />
@@ -52,7 +65,7 @@ export const Register = () => {
         </div>
 
         <div className="container-login-form-btn">
-          <button className="login-form-btn">Registrar</button>
+          <button type="submit" className="login-form-btn">Registrar</button>
         </div>
 
         <div className="text-center">
