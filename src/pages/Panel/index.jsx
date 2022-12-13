@@ -1,11 +1,17 @@
 import { LayoutComponents } from "../../Components/LayoutComponents"
+import { MainHeader } from "../../Components/MainHeader"
 
 
 
 export const Panel = () => {
   return (
-    <LayoutComponents>
-      
-    </LayoutComponents>
+    <section>
+      <MainHeader/>
+
+      <LayoutComponents>
+
+      </LayoutComponents>
+    </section>
+
   )
 }

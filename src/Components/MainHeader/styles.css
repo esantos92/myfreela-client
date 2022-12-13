@@ -1,0 +1,31 @@
+.header {
+  display: flex;
+  justify-content: space-between;
+}
+
+.header .logo {
+  border: none;
+}
+
+.header .logo img{
+  width: 175px;
+  height: 160px;
+  cursor: pointer;
+
+  margin: 20px 0;
+}
+
+.header .avatar {
+  border-radius: 100%;
+  cursor: pointer;
+
+  width: 140px;
+  height: 140px;
+  margin: 20px 30px;
+}
+
+.header .avatar img {
+  border-radius: 100%;
+  width: 150px;
+  height: 150px;
+}
