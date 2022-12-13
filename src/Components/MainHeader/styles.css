@@ -8,8 +8,8 @@
 }
 
 .header .logo img{
-  width: 175px;
-  height: 160px;
+  width: 130px;
+  height: 110px;
   cursor: pointer;
 
   margin: 20px 0;
@@ -18,14 +18,84 @@
 .header .avatar {
   border-radius: 100%;
   cursor: pointer;
+  border: none;
 
-  width: 140px;
-  height: 140px;
+  width: 110px;
+  height: 110px;
   margin: 20px 30px;
 }
 
 .header .avatar img {
   border-radius: 100%;
-  width: 150px;
-  height: 150px;
+  width: 120px;
+  height: 120px;
+}
+
+.action .menu {
+  position: absolute;
+  top: 160px;
+  right: 35px;
+  padding: 10px 20px;
+  background: #AEB7C1;
+  width: 200px;
+  box-sizing: 0 5px 25px rgba(0, 0, 0, 0.1);
+  border-radius: 15px;
+  transition: 0.3s;
+  visibility: hidden;
+  opacity: 0;
+}
+
+.action .menu.active{
+  visibility: visible;
+  opacity: 1;
+}
+
+.action .menu::before {
+  content: '';
+  position: absolute;
+  top: -5px;
+  right: 30px;
+  width: 20px;
+  height: 20px;
+  background: #AEB7C1;
+  transform: rotate(45deg);
+}
+
+.action .menu h3 {
+  width: 100%;
+  text-align: center;
+  font-size: 18px;
+  padding: 20px;
+  font-weight: 500;
+  line-height: 1.2em;
+  background: #AEB7C1;
+  transition: 0.5s;
+}
+
+.action .menu ul li {
+  background: #AEB7C1;
+  list-style: none;
+  padding: 10px 0;
+  border-top: 1px solid rgba(0, 0, 0, 0.05);
+  display: flex;
+  align-items: center;
+  transition: 0.5s;
+}
+
+.action .menu ul li img {
+  width: 30px;
+  background: #AEB7C1;
+  margin-right: 10px;
+  opacity: 0.5;
+  transition: 0.5s;
+}
+
+.action .menu ul li:hover img {
+  opacity: 1;
+}
+
+.title {
+  background: #AEB7C1;
+  display: inline-block;
+  transition: 0.5s;
 }
