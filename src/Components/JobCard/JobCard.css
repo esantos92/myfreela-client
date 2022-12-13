@@ -1,0 +1,85 @@
+.card {
+  display: grid;
+  grid-template-columns: 5% 35% 20% 15% 15% 10%;
+  align-items: center;
+  background: #AEB7C1;
+  padding: 30px;
+  border-radius: 15px;
+
+  margin-bottom:  0.5rem;
+  width: 75%;
+
+  position: relative;
+
+  transition: all 0.2s;
+}
+
+.card .column:last-child {
+  justify-self: center;
+  background: #AEB7C1;
+}
+
+.card .column > span {
+  display:block;
+
+  font-weight: 600;
+  font-size: 16px; /* 12px of 16px root*/
+  text-transform: uppercase;
+
+  color: var(--color-card-label);
+  background: #AEB7C1;
+}
+
+.progress .column p {
+  font-weight: 600;
+  background: #AEB7C1;
+  font-size: 40px;
+}
+
+.column.id {
+  font-weight: 600;
+  color: var(--color-card-label);
+  background: #AEB7C1;
+}
+
+.column.name {
+  font-weight: 600;
+  font-size: 1.5rem;
+  line-height: 2.125rem;
+  background: #AEB7C1;
+}
+
+.icon {
+  width: 40px;
+  height: 40px;
+  opacity: 0.5;
+}
+
+.icon:hover{
+  opacity: 1;
+  transition: 0.5s;
+}
+
+.actions button {
+  border: none;
+  cursor: pointer;
+  margin-left: 25px;
+  padding: 0;
+}
+
+.action {
+  display: flex;
+  justify-content: center;
+}
+
+.text {
+  font-size: 18px;
+}
+
+.status {
+  font-size: 20px;
+}
+
+.text, .status, .button, .icon {
+  background: #AEB7C1;
+}

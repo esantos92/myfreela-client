@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import logoMyFreela from "../../assets/logo.png";
 import EditProfileLogo from "../../assets/edit.png"
 import LogoutIcon from "../../assets/log-out.png"
-import './styles.css';
+import './MainHeader.css';
 import '../../assets/global.css';
 
 export const MainHeader = () => {
