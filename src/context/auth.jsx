@@ -37,6 +37,7 @@ export const AuthProvider = ({ children }) => {
       })
       .catch((error) => alert("Email ou senha incorretos"));
   };
+
   return (
     <AuthContext.Provider
       value={{

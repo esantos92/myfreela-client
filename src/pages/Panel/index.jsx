@@ -11,6 +11,18 @@ export const Panel = () => {
       <div className="container-jobs">
         <JobCard />
         <JobCard />
+        <JobCard />
+        <JobCard />
+        <JobCard />
+        <JobCard />
+        <JobCard />
+        <JobCard />
+        <JobCard />
+        <JobCard />
+        <JobCard />
+        <JobCard />
+        <JobCard />
+        <JobCard />
         
       </div>
     </section>

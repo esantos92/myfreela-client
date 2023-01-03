@@ -12,6 +12,11 @@ export const MainHeader = () => {
     toggleMenu.classList.toggle('active');
   }
 
+  const logOut = () => {
+    localStorage.clear();
+    window.location.reload(false)
+  }
+
   return (
     <div className='header'>
       <Link to='/' className='logo'>
@@ -27,7 +32,7 @@ export const MainHeader = () => {
           <h3>Everton Santos</h3>
           <ul>
             <li><img src={EditProfileLogo} alt='Edit profile icon'/><span className='title'>Editar Perfil</span></li>
-            <li><img src={LogoutIcon} alt='Logout icon'/><span className='title'>Logout</span></li>
+            <li onClick={logOut}><img src={LogoutIcon} alt='Logout icon'/><span className='title'>Logout</span></li>
           </ul>
         </div>
 
