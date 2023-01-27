@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { LayoutComponents } from "../../Components/LayoutComponents"
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { api } from "../../services/api";
 
 import logoMyFreela from "../../assets/logo.png"
@@ -9,6 +9,7 @@ export const Register = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [name, setName] = useState("");
+  const navigate = useNavigate()
 
   const handleSaveUser = async (e) => {
     e.preventDefault();
@@ -17,9 +18,18 @@ export const Register = () => {
       password,
       name
     }
+    try {
+      await api.post('/user/signup', data);
 
-    const response = await api.post('/user/signup', data);
-    console.log(response.data);
+    }
+    catch(e){
+      console.log(e.request.response);
+      alert('Error: ' + e.request.response)
+    }
+    finally {
+      alert('Usuário cadastrado com sucesso!')
+      navigate("/")
+    }
   }
 
   return(
