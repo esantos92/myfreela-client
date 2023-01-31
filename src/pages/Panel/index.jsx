@@ -10,6 +10,7 @@ import './Panel.css'
 export const Panel = () => {
   const [showCreateJobModal, setShowCreateJobModal] = useState(false)
   const [profile, setProfile] = useState(null)
+  const [jobs, setJobs] = useState(null)
   const [title, setTitle] = useState("")
   const [dailyHours, setDailyHours] = useState("")
   const [totalHours, setTotalHours] = useState("")
@@ -56,8 +57,23 @@ export const Panel = () => {
       })
     }
 
+    const getJobs = () => {
+      const storageToken = localStorage.getItem("@Auth:token");
+
+      api.defaults.headers.common[
+        "Authorization"
+      ] = `Bearer ${storageToken}`;
+
+      api.get(`/jobs/index_jobs/${localStorage.getItem("@Auth:user")}`)
+      .then((response)=> {
+        const jobs = response.data
+        setJobs(jobs)
+      })
+    }
+
     getProfile()
-  }, [])
+    getJobs()
+  }, [jobs])
 
   return (
     <section>
@@ -65,7 +81,7 @@ export const Panel = () => {
 
       <button className="open-job-modal-button" onClick={() => setShowCreateJobModal(true)}>Criar Job</button>
 
-      {showCreateJobModal && 
+      {showCreateJobModal &&
         <Modal onClose={() => setShowCreateJobModal(false)}>
           <span className="title-create-job">Create Job</span>
           <form onSubmit={handleNewJob} className="create-job-form">
@@ -105,21 +121,18 @@ export const Panel = () => {
       }
 
       <div className="container-jobs">
-        <JobCard />
-        <JobCard />
-        <JobCard />
-        <JobCard />
-        <JobCard />
-        <JobCard />
-        <JobCard />
-        <JobCard />
-        <JobCard />
-        <JobCard />
-        <JobCard />
-        <JobCard />
-        <JobCard />
-        <JobCard />
-        
+
+        {jobs == null ?
+          <span>Você ainda não tem Jobs criados</span> :
+          jobs.map((job, index) =>
+            <JobCard
+              jobName={job.title}
+              id={index+1}
+              key={job.id}
+              jobId={job.id}
+            />
+          )
+        }
       </div>
     </section>
 
