@@ -1,3 +1,25 @@
+.open-job-modal-button {
+  margin: 0 auto;
+  border-radius: 50px;
+  font-size: 15px;
+  border: none;
+  border-radius: 10px;
+  color: #fff;
+  line-height: 1.2;
+  text-transform: uppercase;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 200px;
+  height: 50px;
+  background: #6a7dfe;
+  background: -webkit-linear-gradient(to left, #21d4fd, #6390C1);
+  background: -o-linear-gradient(to left, #21d4fd, #6390C1);
+  background: -moz-linear-gradient(to left, #21d4fd, #6390C1);
+  background: linear-gradient(to left, #21d4fd, #6390C1);
+  cursor: pointer;
+}
+
 .container-jobs{
   display: block;
   margin-left: auto;
@@ -9,4 +31,67 @@
 
   overflow-y: scroll;
   scroll-behavior: smooth;
+}
+
+.title-create-job {
+  position: relative;
+  left: 40%;
+  top: 10px;
+  font-size: 30px;
+}
+
+.create-job-form {
+  position: relative;
+  margin: 0;
+  padding: 0;
+  left: 5%;
+}
+
+.job-name {
+  margin-top: 20px;
+}
+
+.job-name input {
+  margin-left: 10px;
+  border: none
+}
+
+.hours-daily {
+  margin-top: 20px;
+}
+
+.hours-daily input {
+  margin-left: 10px;
+  width: 50px;
+  border: none;
+}
+
+.total-hours {
+  margin-top: 20px;
+}
+
+.total-hours input {
+  margin-left: 10px;
+  width: 50px;
+  border: none;
+}
+
+.confirm-button {
+  margin: 300px;
+  margin-left: 70px;
+  position: relative;
+  top: 50%;
+  left: 10%;
+  width: 150px;
+  height: 40px;
+  border-radius: 10px;
+  background-color: #5ab59b;
+  opacity: 0.6;
+  transition: opacity 200ms;
+}
+
+.confirm-button:hover{
+  cursor: pointer;
+  opacity: 1;
+  transition-property: opacity;
 }
