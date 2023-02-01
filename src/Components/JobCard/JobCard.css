@@ -80,6 +80,22 @@
   font-size: 20px;
 }
 
+.badge-progress {
+  border: solid 1px #5086C1;
+  border-radius: 10px;
+  text-align: center;
+  margin-right: 5px;
+  background: #5086C1;
+}
+
+.badge-dued {
+  border: solid 1px #5086C1;
+  border-radius: 10px;
+  text-align: center;
+  margin-right: 5px;
+  background: #c15050;
+}
+
 .text, .status, .button, .icon {
   background: #AEB7C1;
 }

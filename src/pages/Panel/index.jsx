@@ -14,6 +14,7 @@ export const Panel = () => {
   const [title, setTitle] = useState("")
   const [dailyHours, setDailyHours] = useState("")
   const [totalHours, setTotalHours] = useState("")
+  const storageToken = localStorage.getItem("@Auth:token");
 
   const createJob = ({ profile_id, title, daily_hours, total_hours }) => {
     api.post('/jobs',{
@@ -22,6 +23,11 @@ export const Panel = () => {
       daily_hours,
       total_hours
     }).then(() => {
+      api.get(`/jobs/index_jobs/${localStorage.getItem("@Auth:user")}`)
+      .then((response)=> {
+        const jobs = response.data
+        setJobs(jobs)
+      })
       alert("job criado com sucesso");
       setShowCreateJobModal(false)
       setDailyHours("")
@@ -41,10 +47,9 @@ export const Panel = () => {
 
     await createJob(data)
   }
-
+  
   useEffect(() => {
     const getProfile = () =>{
-      const storageToken = localStorage.getItem("@Auth:token");
 
       api.defaults.headers.common[
         "Authorization"
@@ -58,8 +63,6 @@ export const Panel = () => {
     }
 
     const getJobs = () => {
-      const storageToken = localStorage.getItem("@Auth:token");
-
       api.defaults.headers.common[
         "Authorization"
       ] = `Bearer ${storageToken}`;
@@ -73,7 +76,7 @@ export const Panel = () => {
 
     getProfile()
     getJobs()
-  }, [jobs])
+  }, [])
 
   return (
     <section>
@@ -83,7 +86,7 @@ export const Panel = () => {
 
       {showCreateJobModal &&
         <Modal onClose={() => setShowCreateJobModal(false)}>
-          <span className="title-create-job">Create Job</span>
+          <span className="title-create-job">Criar Job</span>
           <form onSubmit={handleNewJob} className="create-job-form">
             <div className="job-name">
               <span>Nome do Job</span>
@@ -130,6 +133,10 @@ export const Panel = () => {
               id={index+1}
               key={job.id}
               jobId={job.id}
+              creationDate={job.inserted_at}
+              totalHours={job.total_hours}
+              dailyHours={job.daily_hours}
+              hoursPerDay={profile.hours_per_day}
             />
           )
         }
