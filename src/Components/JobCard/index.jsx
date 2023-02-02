@@ -74,11 +74,11 @@ export const JobCard = (props) => {
         <div className="name column">{props.jobName}</div>
         <div className="deadline column">
           <span>Prazo</span>
-          <p className="text">{remainingDays(props.totalHours, props.dailyHours, props.creationDate)} dias para a entrega</p>
+          <p className="text">{remainingDays(props.totalHours, props.dailyHours, props.creationDate)} dia(s) para a entrega</p>
         </div>
         <div className="amount column">
           <span>Valor</span>
-          <p className="text">R$ 1000,00 </p>
+          <p className="text">R$ {props.jobBudget} </p>
         </div>
         {remainingDays(props.totalHours, props.dailyHours, props.creationDate) > 0 ?
           <div className="badge-progress">em andamento</div> : 

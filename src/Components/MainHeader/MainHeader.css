@@ -103,3 +103,75 @@
   display: inline-block;
   transition: 0.5s;
 }
+
+.title-update-profile {
+  position: relative;
+  left: 40%;
+  top: 10px;
+  font-size: 30px;
+}
+
+.update-profile-form {
+  font-size: 20px;
+  position: relative;
+  height: 70px;
+  margin: 0;
+  padding: 0;
+  left: 5%;
+}
+
+.github-profile {
+  margin-top: 20px;
+}
+
+.github-profile input {
+  text-align: center;
+  font-size: 20px;
+  margin-left: 10px;
+  border: none
+}
+
+.days-per-week {
+  margin-top: 20px;
+}
+
+.days-per-week input{
+  width: 50px;
+  text-align: center;
+  font-size: 20px;
+  margin-left: 10px;
+  border: none
+}
+
+.monthly-budget {
+  margin-top: 20px;
+}
+
+.monthly-budget input{
+  text-align: center;
+  font-size: 20px;
+  margin-left: 10px;
+  border: none
+}
+
+.profile-summary div:first-child{
+  margin-top: 20px;
+}
+
+.update-button {
+  position: relative;
+  top: 280%;
+  left: 20%;
+  width: 150px;
+  height: 40px;
+  border-radius: 10px;
+  background-color: #5ab59b;
+  opacity: 0.6;
+  transition: opacity 200ms;
+}
+
+.update-button:hover{
+  cursor: pointer;
+  opacity: 1;
+  transition-property: opacity;
+}

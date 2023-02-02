@@ -36,6 +36,8 @@ export const Panel = () => {
     })
   }
 
+  const jobBudget = (totalHours, hourValue) => totalHours * hourValue
+
   const handleNewJob = async (e) => {
     e.preventDefault();
     const data ={
@@ -59,6 +61,7 @@ export const Panel = () => {
       .then((response)=> {
         const profile = response.data
         setProfile(profile)
+        console.log(profile)
       })
     }
 
@@ -80,7 +83,9 @@ export const Panel = () => {
 
   return (
     <section>
-      <MainHeader/>
+      <MainHeader 
+        profile={{...profile}}
+      />
 
       <button className="open-job-modal-button" onClick={() => setShowCreateJobModal(true)}>Criar Job</button>
 
@@ -137,6 +142,7 @@ export const Panel = () => {
               totalHours={job.total_hours}
               dailyHours={job.daily_hours}
               hoursPerDay={profile.hours_per_day}
+              jobBudget={jobBudget(job.total_hours, profile.value_hour)}
             />
           )
         }
