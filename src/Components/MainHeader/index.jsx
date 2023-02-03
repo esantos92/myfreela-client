@@ -10,18 +10,18 @@ import { useState } from 'react';
 import { Modal } from '../Modal';
 import { api } from '../../services/api';
 
-export const MainHeader = (profile) => {
+export const MainHeader = (props) => {
   const [showUpdateProfileModal, setShowUpdateProfileModal] = useState(false)
-  const [daysPerWeek, setDaysPerWeek] = useState(profile.profile.days_per_week)
-  const [actualDaysPerWeek, setActualDaysPerWeek] = useState(profile.profile.days_per_week)
-  const [gitHubUserName, setGitHubUserName] = useState(profile.profile.github_username)
-  const [actualGitHubUserName, setactualGitHubUserName] = useState(profile.profile.github_username)
-  const [hoursPerDay, setHoursPerDay] = useState(profile.profile.hours_per_day)
-  const [actualHoursPerDay, setactualHoursPerDay] = useState(profile.profile.hours_per_day)
-  const [profileId, setProfileId] = useState(profile.profile.id)
-  const [monthtlyBudget, setMonthtlyBudget] = useState(profile.profile.monthly_budget)
-  const [actualMonthtlyBudget, setactualMonthtlyBudget] = useState(profile.profile.monthly_budget)
-  const [valueHour, setValueHour] = useState(profile.profile.value_hour)
+  const [daysPerWeek, setDaysPerWeek] = useState(props.profile.days_per_week)
+  const [actualDaysPerWeek, setActualDaysPerWeek] = useState(props.profile.days_per_week)
+  const [gitHubUserName, setGitHubUserName] = useState(props.profile.github_username)
+  const [actualGitHubUserName, setactualGitHubUserName] = useState(props.profile.github_username)
+  const [hoursPerDay, setHoursPerDay] = useState(props.profile.hours_per_day)
+  const [actualHoursPerDay, setactualHoursPerDay] = useState(props.profile.hours_per_day)
+  const [profileId, setProfileId] = useState(props.profile.id)
+  const [monthtlyBudget, setMonthtlyBudget] = useState(props.profile.monthly_budget)
+  const [actualMonthtlyBudget, setactualMonthtlyBudget] = useState(props.profile.monthly_budget)
+  const [valueHour, setValueHour] = useState(props.profile.value_hour)
   const storageToken = localStorage.getItem("@Auth:token");
 
   const menuToggle = () => {
@@ -36,7 +36,7 @@ export const MainHeader = (profile) => {
 
   const openModal= () => {
     setShowUpdateProfileModal(true)
-    console.log(profile.profile)
+    console.log(props.profile.value_hour)
     menuToggle()
   }
 

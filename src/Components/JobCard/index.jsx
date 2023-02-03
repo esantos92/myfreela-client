@@ -78,7 +78,7 @@ export const JobCard = (props) => {
         </div>
         <div className="amount column">
           <span>Valor</span>
-          <p className="text">R$ {props.jobBudget} </p>
+          <p className="text">R$ {props.jobBudget.toFixed(2)} </p>
         </div>
         {remainingDays(props.totalHours, props.dailyHours, props.creationDate) > 0 ?
           <div className="badge-progress">em andamento</div> : 
