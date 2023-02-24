@@ -1,28 +1,55 @@
 /* eslint-disable no-unused-vars */
 import { Link } from 'react-router-dom';
-
-import logoMyFreela from "../../assets/logo.png";
-import EditProfileLogo from "../../assets/edit.png"
-import LogoutIcon from "../../assets/log-out.png"
-import './MainHeader.css';
-import '../../assets/global.css';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { Modal } from '../Modal';
 import { api } from '../../services/api';
 
+import logoMyFreela from "../../assets/logo.png";
+import avatar from "../../assets/user.png";
+import EditProfileLogo from "../../assets/edit.png";
+import LogoutIcon from "../../assets/log-out.png";
+import './MainHeader.css';
+import '../../assets/global.css';
+
 export const MainHeader = (props) => {
   const [showUpdateProfileModal, setShowUpdateProfileModal] = useState(false)
-  const [daysPerWeek, setDaysPerWeek] = useState(props.profile.days_per_week)
-  const [actualDaysPerWeek, setActualDaysPerWeek] = useState(props.profile.days_per_week)
-  const [gitHubUserName, setGitHubUserName] = useState(props.profile.github_username)
-  const [actualGitHubUserName, setactualGitHubUserName] = useState(props.profile.github_username)
-  const [hoursPerDay, setHoursPerDay] = useState(props.profile.hours_per_day)
-  const [actualHoursPerDay, setactualHoursPerDay] = useState(props.profile.hours_per_day)
-  const [profileId, setProfileId] = useState(props.profile.id)
-  const [monthtlyBudget, setMonthtlyBudget] = useState(props.profile.monthly_budget)
-  const [actualMonthtlyBudget, setactualMonthtlyBudget] = useState(props.profile.monthly_budget)
-  const [valueHour, setValueHour] = useState(props.profile.value_hour)
+  const [daysPerWeek, setDaysPerWeek] = useState(null)
+  const [actualDaysPerWeek, setActualDaysPerWeek] = useState(null)
+  const [gitHubUserName, setGitHubUserName] = useState(null)
+  const [actualGitHubUserName, setActualGitHubUserName] = useState(null)
+  const [hoursPerDay, setHoursPerDay] = useState(null)
+  const [actualHoursPerDay, setActualHoursPerDay] = useState(null)
+  const [profileId, setProfileId] = useState(null)
+  const [monthtlyBudget, setMonthtlyBudget] = useState(null)
+  const [actualMonthtlyBudget, setActualMonthtlyBudget] = useState(null)
+  const [valueHour, setValueHour] = useState(null)
   const storageToken = localStorage.getItem("@Auth:token");
+
+  useEffect(() => {
+    const getProfile = () =>{
+
+      api.defaults.headers.common[
+        "Authorization"
+      ] = `Bearer ${storageToken}`;
+
+      api.get(`/profile/${localStorage.getItem("@Auth:user")}`)
+      .then((response)=> {
+        const profile = response.data
+        setDaysPerWeek(profile.days_per_week)
+        setActualDaysPerWeek(profile.days_per_week)
+        setGitHubUserName(profile.github_username)
+        setActualGitHubUserName(profile.github_username)
+        setHoursPerDay(profile.hours_per_day)
+        setActualHoursPerDay(profile.hours_per_day)
+        setProfileId(profile.id)
+        setMonthtlyBudget(profile.monthly_budget)
+        setActualMonthtlyBudget(profile.monthly_budget)
+        setValueHour(profile.value_hour)
+      })
+    }
+
+    getProfile()
+  }, [])
 
   const menuToggle = () => {
     const toggleMenu = document.querySelector('.menu');
@@ -86,7 +113,7 @@ export const MainHeader = (props) => {
             {
               actualGitHubUserName !== "Insira seu github" ?
                 <img src={`https://github.com/${actualGitHubUserName}.png`} alt="User avatar" /> :
-                <img src="../../assets/anonymous-avatar-icon-25.jpg" alt="User avatar" />}
+                <img src={avatar} alt="User avatar" />}
             
           </button>
 

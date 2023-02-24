@@ -83,9 +83,7 @@ export const Panel = () => {
 
   return (
     <section>
-      <MainHeader 
-        profile={{...profile}}
-      />
+      <MainHeader/>
 
       <button className="open-job-modal-button" onClick={() => setShowCreateJobModal(true)}>Criar Job</button>
 
