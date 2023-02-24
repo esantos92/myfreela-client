@@ -1,10 +1,11 @@
-import DeleteIcon from "../../assets/trash-24.svg"
-import EditIcon from "../../assets/edit-24.svg"
 import { api } from "../../services/api";
 import { Modal } from "../Modal";
 import { useState } from "react";
+
 import "../../assets/global.css";
 import "./JobCard.css";
+import DeleteIcon from "../../assets/trash-24.svg"
+import EditIcon from "../../assets/edit-24.svg"
 
 export const JobCard = (props) => {
   const storageToken = localStorage.getItem("@Auth:token");
